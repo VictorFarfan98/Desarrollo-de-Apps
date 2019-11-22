@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blank Standard HTML5 Web App Template</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <style>
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }  @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }           @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+        
+        img{
+            width: 100%;
+        }
+    </style>
+
+    <!-- Uncomment the following scripts if you convert your "Standard HTML5" project into a "Cordova" project. -->
+    <script src="cordova.js"></script>      <!-- phantom library, needed for Cordova api calls, added during build -->
+    <script src="js/app.js"></script>         <!-- recommended location of your JavaScript code relative to other JS files -->
+    <script src="xdk/init-dev.js"></script>   <!-- normalizes device and document ready events, see README for details -->
+</head>
+
+<body onload="onLoad()">
+
+    <h2 align="center"> Bienvenido a mi Encendedor Zippo </h2>
+    <div id="contenido">
+        <img src="src/zippo.gif" width="100%" id="img" onclick="changeimg()"/>
+    </div>
+    <div id="inicio">
+        
+    </div>
+    <div id="info" align="center">
+        Agite su dispositivo para encender o apagar el Encendedor
+    </div>
+    
+    
+    
+<script>    
+    var cambio = false;
+    function onSuccessAcceleration(acceleration) {
+        var movimiento = Number(acceleration.x) + Number(acceleration.y) + Number(acceleration.z);
+        if(movimiento > 20){
+            /*document.getElementById('info').innerHTML = 'X: ' + acceleration.x + '\n' +
+            'Y: ' + acceleration.y + '\n' +
+            'Z: ' + acceleration.z + '\n' +
+            'Timestamp: '      + acceleration.timestamp + '\n';*/
+            cambiar();    
+        }
+        
+        
+        
+    }
+
+    function onErrorAcceleration() {
+        alert('onError!');
+        
+    }
+
+    function Start(){
+        var options = { frequency: 500 };  // Update every 0.1 seconds
+        var watchID = navigator.accelerometer.watchAcceleration(onSuccessAcceleration, onErrorAcceleration, options);    
+    }
+    
+    function cambiar () {
+        //alert(cambio);
+        if(cambio == false){
+            document.getElementById('img').src = "src/zippo_animado.gif";
+            cambio = true;
+        }else{
+            document.getElementById('img').src = "src/zippo.gif";
+            cambio = false;
+        }
+            
+    }
+    
+    // Wait for device API libraries to load
+    //
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // Now safe to use device APIs
+        Start();
+    }
+</script>
+</body>
+</html>

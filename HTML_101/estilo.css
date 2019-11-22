@@ -1,0 +1,22 @@
+body{
+    font-family: "Trebuchet MS", Arial;
+}
+
+#contenedor{
+    background: #CCCCCC;
+    color: #2C3993;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#titulo{
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+#img{
+    float: left;
+    transform: rotate(90deg);
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blank Standard HTML5 Web App Template</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <style>
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }  @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }           @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+        
+        img{
+            width: 100%;
+        }
+    </style>
+
+    <!-- Uncomment the following scripts if you convert your "Standard HTML5" project into a "Cordova" project. -->
+    <script src="cordova.js"></script>      <!-- phantom library, needed for Cordova api calls, added during build -->
+    <script src="js/app.js"></script>         <!-- recommended location of your JavaScript code relative to other JS files -->
+    <script src="xdk/init-dev.js"></script>   <!-- normalizes device and document ready events, see README for details -->
+</head>
+
+<body onload="onLoad()">
+    <form>
+    <h2 align="center"> Contador de Calorias </h2>
+    <div id="contenido">
+        <p>
+            <table>
+                <tr>
+                    <td>
+                        <h2>Acumulador</h2>
+                    </td>
+                    <td>
+                        <h2>Calorias Quemadas</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="acumulador"><!--<input type="text" value="0" id="calorias">--></td>
+                    <td id="calorias">  </td>
+                </tr>
+            </table>
+            Calorias quemadas:  <br>
+            Acumulador: <input type="text" value="0" id="acumulador">
+        </p>
+    </div>
+    <div id="inicio">
+        
+    </div>
+    <div id="info" align="center">
+        
+    </div>
+    </form>
+    
+    
+<script>    
+    var cambio = false;
+    function onSuccessAcceleration(acceleration) {
+        //alert("Funciono onSuccessAcceleration");
+        var movimiento = Math.abs(Number(acceleration.x)) + Math.abs(Number(acceleration.y)) + Math.abs(Number(acceleration.z));
+        var acumulador = Number(document.getElementById("acumulador").value)
+        var calorias = Number(document.getElementById("calorias").value)
+        if(movimiento >= 25){
+            document.getElementById('info').innerHTML = 'X: ' + acceleration.x + '\n' +
+            'Y: ' + acceleration.y + '\n' +
+            'Z: ' + acceleration.z + '\n' +
+            'Timestamp: '      + acceleration.timestamp + '\n';
+            acumulador = acumulador + movimiento;
+            if(acumulador >= 150 ){
+                calorias++;
+                acumulador=0;
+            }
+            document.getElementById("acumulador").value = acumulador;
+            document.getElementById("calorias").value = calorias;
+        }
+        
+        
+    }
+
+    function onErrorAcceleration() {
+        alert('onError!');
+        
+    }
+
+    function Start(){
+        var options = { frequency: 500 };  // Update every 0.1 seconds
+        var watchID = navigator.accelerometer.watchAcceleration(onSuccessAcceleration, onErrorAcceleration, options); 
+        //document.getElementById("inicio").innerHTML = "<h3>Funciono Start</h3>";
+        //alert("Funciono Start");
+        
+    }
+    
+    function cambiar () {
+        
+            
+    }
+    
+    // Wait for device API libraries to load
+    //
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+        //document.getElementById("inicio").innerHTML = "<h3>Funciono onLoad</h3><br>";
+        //alert("Funciono onLoad");
+    }
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // Now safe to use device APIs
+        Start();
+        //document.getElementById("inicio").innerHTML = "<h3>Funciono onDeviceReady</h3><br>";
+        //alert("Funciono onDeviceReady");
+    }
+</script>
+</body>
+</html>

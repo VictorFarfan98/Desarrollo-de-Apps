@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+	<title>GALAGA</title>
+	<link rel="stylesheet" type="text/css" href="galaga.css" />
+	<link rel="stylesheet" type="text/css" href="galagaPage.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+   (function(){
+      emailjs.init("user_ZbGKNMiFMM78npqm7kIr2");
+   })();
+</script>
+</head>
+<body onload="load();">
+	<div id="title">
+		<div id="head">Welcome to Galaga</div>		
+	</div>
+    
+    <div id="version">
+        <table align="center" style="color: white;">
+            <tr>
+                <td>Nombre: </td>
+                <td> <input type="text" id="nombre" ></td>
+            </tr>
+            <tr>
+                <td colspan="1" align="center"> Asunto</td>
+                <td> <input type="text" id="asunto"> </td>
+            </tr>
+            <tr>
+                <td colspan="1" align="center"> Comentario: </td>
+                <td> <textarea id="comentario"></textarea> </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"> <input type="button" value="Enviar" onclick="sendMail();"> 
+                    <input type="button" value="Regresar" onclick="regresar();">
+                </td>
+            </tr>
+        </table>
+    </div>
+	
+    
+    <script>
+        function sendMail(){
+            var nombre = document.getElementById("nombre").value;
+            var asunto = document.getElementById("asunto").value;
+            var mensaje = document.getElementById("comentario").value;
+            alert(nombre + "\n" + mensaje);
+            // parameters: service_id, template_id, template_parameters
+            emailjs.send("gmail","Template1",{name: nombre, notes: mensaje});
+            
+            alert("Mensaje enviado");
+        }
+        
+        function regresar(){
+            self.location = "Menu.html";
+        }
+        
+        function load(){
+            StatusBar.hide();
+        }
+    </script>
+</body>

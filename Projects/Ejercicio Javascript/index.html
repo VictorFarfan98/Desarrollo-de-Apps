@@ -1,0 +1,54 @@
+<DOCTYPE html> 
+<html>
+    <head>
+        <title> Ejercicio 1 JS </title>
+        <link rel="stylesheet" href="estilo.css" type="text/css" />
+    </head>
+    <body onload="load()">
+        <div id="contenedor">
+            <div id="controles">
+                <input type="button" value="Mas Ancha" id="mas" onclick="mas()">
+                <input type="button" value="Menos Ancha" id="menos" onclick="menos()">
+                <br>
+                <p>Ingrese el valor del ancho:
+                    <input type="text" id="ancho" value="0" onchange="liveancho()"></p>
+            </div>
+            <div id="imgcon">
+                <img src="Goro%20Wallpaper.jpg" width="400" id="image" align="center">
+            </div>
+            
+        </div>
+        
+        <script>
+            function mas(){
+                var ancho = Number(document.getElementById("image").getAttribute("width"));
+                //alert(ancho);
+                ancho = ancho + 10;
+                document.getElementById("image").setAttribute("width",ancho);
+                document.getElementById("ancho").value = ancho;
+            }
+            
+            function menos(){
+                var ancho = Number(document.getElementById("image").getAttribute("width"));
+                //alert(ancho);
+                ancho = ancho - 10;
+                document.getElementById("image").setAttribute("width",ancho);
+                document.getElementById("ancho").value = ancho;
+            }
+            
+            function liveancho(){
+                var ancho = Number(document.getElementById("ancho").value);
+                //alert(ancho);
+                document.getElementById("image").setAttribute("width",ancho);
+                document.getElementById("ancho").value = ancho;
+            }
+            
+            function load(){
+                var ancho = Number(document.getElementById("image").getAttribute("width"));
+
+                //alert(ancho);
+                document.getElementById("ancho").value = ancho;
+            }
+        </script>
+    </body>
+</html>

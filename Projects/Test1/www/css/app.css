@@ -1,0 +1,127 @@
+/*
+ * Copyright (c) 2013-2016, Paul Fischer, Intel Corporation. All rights reserved.
+ * Please see https://software.intel.com/en-us/xdk/article/intel-html5-samples-license-terms-and-conditions
+ * and the included README.md and LICENSE.md files for license terms and conditions.
+ */
+
+/*csslint order-alphabetical:false, important:false, adjoining-classes:false, box-model:false, display-property-grouping:false, unique-headings:false */
+
+body {
+    background-attachment: fixed ;
+    background-color: #ddd ;
+    background-repeat: no-repeat ;
+    color: #555 ;
+    height: 100% ;
+    margin: 0 auto;
+    max-width: 800px ;
+    width: auto ;
+
+    /* Disable certain interactions on touch devices */
+    /* derived from https://github.com/ftlabs/fastclick/blob/master/examples/input.html */
+    -webkit-highlight: none ;
+    -webkit-tap-highlight-color: rgba(0,0,0,0) ;
+    -webkit-tap-highlight-color: transparent ;      /* For some Androids */
+    -webkit-text-size-adjust: none ; -ms-text-size-adjust: none ;
+    -webkit-touch-callout: none ;
+    -webkit-user-select: none ; -moz-user-select: none ; -ms-user-select: none ; user-select: none ;
+}
+
+h1, h2 {
+    color: inherit ;
+}
+
+h1 {
+    font-weight: bold ;
+}
+
+hr {                /* Gradient transparent - color - transparent */
+    border: 0 ;
+    height: 1px ;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)) ;
+    margin: 0 5% ;
+}
+
+input, textarea {
+    color: #555 ;
+    -webkit-user-select: text ; -moz-user-select: text ; -ms-user-select: text ; user-select: text ;
+}
+
+ul {
+    list-style-type: square ;
+}
+
+.event, .cl_btnOn {
+    color: #eee !important ;                /* !important needed for .cl_btnOn class */
+}
+
+.event {
+    background-color: darkblue ;
+    -webkit-border-radius: 4px ; border-radius: 4px ;
+    margin: 0 5% ;
+    overflow: hidden ;
+    padding: 2px 0 ;
+    text-overflow: ellipsis ;
+    white-space: nowrap ;
+}
+.event.listening {
+    background-color: khaki ;
+    color: inherit !important ;             /* !important needed to override .event */
+    display: block ;
+}
+.event.failed {
+    background-color: lightpink ;
+    color: inherit !important ;             /* !important needed to override .event */
+    display: none ;
+}
+.event.received {
+    background-color: seagreen ;
+    display: none ;
+}
+
+input[type=button] {
+    height: 2em ;
+    width: 12em ;
+    background-color: #eee ;
+    border: 1px solid #999 ;
+    -webkit-border-radius: 15px ; border-radius: 15px ;
+    color: inherit ;
+    text-align: center ;
+}
+
+.cl_btnOn {
+    background-color: #888 !important ;
+}
+
+label {
+    color: #555 ;
+    display: inline-block ;
+    font-weight: normal ;
+    text-align: right ;
+    width: 12.0rem ;
+}
+
+.info-label {
+    color: #555 ;
+    overflow: auto ;
+/*    white-space: nowrap ;*/
+}
+
+.info-data, .info-text {
+    background: inherit ;
+    color: indianred ;
+}
+
+.info-data {
+    overflow: auto ;
+    white-space: nowrap ;
+}
+
+.info-text {
+    -webkit-border-radius: 4px ; border-radius: 4px ;
+    height: 2rem ;
+    width: 85% ;
+}
+
+textarea {
+    -webkit-border-radius: 4px ; border-radius: 4px ;
+}

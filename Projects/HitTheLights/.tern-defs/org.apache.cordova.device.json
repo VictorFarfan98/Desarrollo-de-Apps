@@ -1,0 +1,12 @@
+{
+    "!name": "org.apache.cordova.device",
+    "!define": {
+        "!modules": {
+            "device": {
+                "available": "bool"
+            }
+        }
+    },
+    "!plugin-version": "0.2.13",
+    "device": "!modules.device"
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+	<title>GALAGA</title>
+	<link rel="stylesheet" type="text/css" href="galaga.css" />
+	<link rel="stylesheet" type="text/css" href="galagaPage.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+</head>
+<body onload="load();">
+	<div id="title">
+		<div id="head">Welcome to Galaga</div>		
+	</div>
+    
+    <div id="version">
+        <table align="center" style="color: white;">
+            <tr>
+                <td>Nombre: </td>
+                <td> <input type="text" id="nombre" ></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"> <input type="button" value="Entrar" onclick="entrar();" ></td>
+            </tr>
+            
+        </table>
+    </div>
+	
+    
+    <script>
+        function entrar(){
+            var nombre = document.getElementById("nombre").value;
+            if(nombre != ""){
+                localStorage.setItem("name",nombre);
+                self.location = "Menu.html";
+            }else{
+                alert("Debe ingresar su nombre");
+                document.getElementById("nombre").focus();
+            }
+        }
+        
+        
+        function load(){
+            StatusBar.hide();
+        }
+    </script>
+</body>

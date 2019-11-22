@@ -1,0 +1,32 @@
+p{
+    background: rgb(152,251,152);
+    padding: 10px;
+    margin-bottom: 0;
+    border-style: dotted hidden;
+    border-color: blue #999 blue #999;
+    }
+li{
+    margin-bottom: 0;
+}
+ol{
+    margin-bottom: 5px;
+    font-family: cursive;
+}
+body{
+    background: #9FDDED;
+    width: 960px;
+    font-family: :Century Gothic;
+}
+#centro{
+    overflow: hidden;
+}
+#foto{
+    float: left;
+}
+#Datos{
+    text-align: center;
+}
+#Datos a:hover{
+    color:#FFF;
+    font: underline;
+}

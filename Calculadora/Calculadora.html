@@ -1,0 +1,101 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <title> Mi Calculadora </title>
+        <link rel="stylesheet" href="CalculadoraCSS.css" type="text/css"/>
+        <script type="text/javascript" src="CalculadoraJS.js" ></script>
+    </head>
+    <body onload="refreshOp('0')">
+        <head> 
+            <h1> Bienvenido a la Calculadora de Victor Farfán </h1>
+        </head>
+        <div id="calculadora">
+            <table border="0px">
+                <tr class="txt">
+                    <td colspan="4"> 
+                        <input type="text" id="historia" readonly="readonly" />
+                    </td>
+                </tr>
+                <tr class="txt">
+                    <td colspan="4" rowspan="2">
+                        <input type="text" id="op" readonly="readonly" value=""/>
+                    </td>
+                </tr>
+                <tr class="txt">
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="C" class="signos" onclick="detectInput(this)"/>
+                    </td>
+                    <td>
+                        <input type="button" value="←" class="signos" onclick="detectInput(this)"/>
+                    </td>
+                    <td>
+                        <input type="button" value="÷" class="signos" onclick="detectInput(this)"/>
+                    </td>
+                    <td>
+                        <input type="button" value="x" class="signos" onclick="detectInput(this)"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="7" class="numeros" onclick="detectInput(this)" />
+                    </td>
+                    <td>
+                        <input type="button" value="8" class="numeros" onclick="detectInput(this)"/>
+                    </td>
+                    <td>
+                        <input type="button" value="9" class="numeros" onclick="detectInput(this)"/>
+                    </td>
+                    <td>
+                        <input type="button" value="-" class="signos" onclick="detectInput(this)"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="4" class="numeros" onclick="detectInput(this)"/>
+                    </td>
+                    <td>
+                        <input type="button" value="5" class="numeros" onclick="detectInput(this)"/>
+                    </td>
+                    <td>
+                        <input type="button" value="6" class="numeros" onclick="detectInput(this)"/>
+                    </td>
+                    <td>
+                        <input type="button" value="+" class="signos" onclick="detectInput(this)"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="1" class="numeros" onclick="detectInput(this)"/>
+                    </td>
+                    <td>
+                        <input type="button" value="2" class="numeros" onclick="detectInput(this)"/>
+                    </td>
+                    <td>
+                        <input type="button" value="3" class="numeros" onclick="detectInput(this)"/>
+                    </td>
+                    <td rowspan="2">
+                        <input type="button" value="=" class="igual" id="last-r" onclick="detectInput(this)"/>
+                    </td>
+                </tr>
+                <tr class="last">
+                    <td colspan="2">
+                        <input type="button" value="0" class="numeros" id="last-l" onclick="detectInput(this)"/>
+                    </td>
+                    <td>
+                        <input type="button" value="." class="numeros" onclick="detectInput(this)"/>
+                    </td>
+                    
+                </tr>
+            </table>
+            <a href="javascript: showCadena()">Show</a>
+        </div>
+        <footer align="center"> 
+            Victor Andre Farf&aacute;n Miranda <br>
+            20170473
+        </footer>
+    </body>
+</html>
+</DOCTYPE>

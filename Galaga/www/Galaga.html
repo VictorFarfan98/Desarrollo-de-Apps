@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+	<title>GALAGA</title>
+	<link rel="stylesheet" type="text/css" href="galaga.css" />
+	<link rel="stylesheet" type="text/css" href="galagaPage.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="galaga.js"></script>
+</head>
+<body onload="onWindowLoaded();">
+	<galaga>
+		<header>
+			<div id="highscore-title" class="center">Battery</div>
+			<highscore class="center" id="battery"></highscore>
+			<oneup>1up</oneup>
+			<playerscore class="left" data-points="0">0</playerscore>
+		</header>
+		<playarea>
+			<starfield></starfield>
+			<message>Loading Files</message>
+		</playarea>
+		<footer></footer>
+		<div class="audio" id="audio">
+			<audio id="theme" preload="auto">
+				<source src="sounds/theme.mp3" type="audio/mp3">
+			</audio>
+			<audio id="start" preload="auto">
+				<source src="sounds/start.mp3" type="audio/mp3">
+			</audio>
+			<audio id="firing" preload="auto">
+				<source src="sounds/firing.mp3" type="audio/mp3">
+			</audio>
+			<audio id="coin" preload="auto">
+				<source src="sounds/coin.mp3" type="audio/mp3">
+			</audio>
+			<audio id="kill" preload="auto">
+				<source src="sounds/kill.mp3" type="audio/mp3">
+			</audio>
+		</div>
+        <div id="test">
+        
+        </div>
+        <table>
+            <tr>
+                <td><input type="button" onclick="fireMissle();" value="Shoot!" style="display: none;" id="gatillo"></td>
+                <td><input type="button" onclick="moveShipLeft();" value="Izquierda!" style="display: none;" id="l"></td>
+                <td><input type="button" onclick="moveShipRight();" value="Derecha!" style="display: none;" id="r"></td>
+            </tr>
+        </table>
+        
+        
+        
+        <!--
+        <input type="button" onclick="watchMovement();" value="Accelerometer!" style="display: block;" id="accel">
+        <div id="test">
+         Hola
+        </div>-->
+	</galaga>
+</body>

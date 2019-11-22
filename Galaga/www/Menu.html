@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+	<title>GALAGA</title>
+	<link rel="stylesheet" type="text/css" href="galaga.css" />
+	<link rel="stylesheet" type="text/css" href="galagaPage.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+</head>
+<body onload="load();">
+	<div id="title">
+		<div id="head">Welcome </div>		
+	</div>
+    
+    <div id="version">
+        <table align="center" style="color: white;">
+            
+            <tr>
+                <td colspan="2" align="center"> <input type="button" value="Empezar Juego" onclick="play();" ></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"> <input type="button" value="Contacto" onclick="contacto();" ></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"> <input type="button" value="Salir" onclick="salir();" ></td>
+            </tr>
+        </table>
+    </div>
+	
+    
+    <script>
+        function play(){
+            self.location = "Galaga.html";
+        }
+        
+        function contacto(){
+            self.location = "Contacto.html";
+        }
+        
+        function load(){
+            document.getElementById("head") = "Welcome" + localStorage.getItem("name")
+            
+            StatusBar.hide();
+        
+        }
+        
+        function salir(){
+            localStorage.setItem("name","");
+            self.location = "index.html";
+        }
+    </script>
+</body>
